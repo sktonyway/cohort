@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing some APIs</title>
+    <link rel="stylesheet" href="./fonts/style.css">
+</head>
+
+<body>
+    <section id="register" class="full-page ">
+        <div class="left">
+            <div>
+                <h1 class="large-text">Hello Ji</h1>
+                <p class="small-text">This site is just made for testing purpose of some APIs.</p>
+                <p class="small-text">It is using freeapi behind the scenes.</p>
+            </div>
+        </div>
+        <div class="right">
+            <form>
+                <input type="text" name="username" id="register-username" placeholder="username">
+                <input type="email" name="email" id="register-email" placeholder="Email">
+                <input type="password" name="password" id="register-password" placeholder="Password">
+                <button id="register-btn">Register</button>
+                <button id="link-btn" >Login here</button>
+
+            </form>
+        </div>
+    </section>
+
+    <section id="login" class="full-page hidden">
+        <div class="left">
+            <div class="l-cent">
+                <h1 class="large-text">Hello Ji</h1>
+                <p class="small-text">This site is just made for testing purpose of some APIs.</p>
+                <p class="small-text">It is using freeapi behind the scenes.</p>
+            </div>
+        </div>
+        <div class="right">
+            <form>
+                <input type="email" name="email" id="login-email" placeholder="Email">
+                <input type="password" name="password" id="login-password" placeholder="Password">
+                <button id="login-btn">Login</button>
+                <button id="link-btn">Signup here</button>
+            </form>
+        </div>
+    </section>
+    <section id="testing hidden">
+        <div class="testing-page">
+            <h1>This is API testing page.</h1>
+            <div class="apis">
+                <div id="left-apis">
+                    <ul>
+                        <button>Orders</button><button>Todos</button><button>Cats</button><button>Quote</button><button>Joke</button>
+                    </ul>
+                </div>
+                <div id="right-apis-about">
+                    <div class="page">
+                        <h1 class="large-text">
+                            FreeAPI
+                        </h1>
+                        <p class="small-text">
+                            Open source project to learn about API via any web or mobile frontend.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+<script>
+    let loginPage = document.querySelector('#login')
+    let signupPage = document.querySelector('#register')
+    let testingPage = document.querySelector('#testing')
+
+    let loginBtn = document.querySelector('#login-btn')
+    let registerBtn = document.querySelector('#register-btn')
+    let apiTestingPage = document.querySelector('#api-testing')
+
+    registerBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let email = document.getElementById('register-email').value
+        let username = document.getElementById('register-username').value
+        let password = document.getElementById('register-password').value
+        let obj = {email, password, username}
+        signUp(obj)
+    })
+    loginBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let email = document.getElementById('login-email').value
+        let password = document.getElementById('login-password').value
+        let obj = {email, password}
+        login(obj)
+    })
+    // Takes username, email, password
+    async function signUp(obj) {
+        if (!(obj.username && obj.password && obj.email)) {
+            alert("Fill all required fields");
+            return;
+        }
+        let body = {
+            username: obj.username,
+            email: obj.email,
+            password: obj.password
+        }
+        const options = {
+            method: 'POST',
+            headers: { accept: 'application/json', 'content-type': 'application/json' },
+            body: JSON.stringify(body)
+        };
+
+        try {
+            const response = await fetch('https://api.freeapi.app/api/v1/users/register', options);
+            const data = await response.json();
+            if(data.statusCode < 400){
+                alert('Success')
+                signupPage.classList.add('hidden')
+                loginPage.classList.remove('hidden')
+            }
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    // Takes email, password
+    async function login(obj) {
+        if (!(obj.password && obj.email)) {
+            alert("Fill all required fields");
+            return;
+        }
+        let body = {
+            email: obj.email,
+            password: obj.password
+        }
+        const options = {
+            method: 'POST',
+            headers: { accept: 'application/json', 'content-type': 'application/json' },
+            body: JSON.stringify(body)
+        };
+
+        try {
+            const response = await fetch('https://api.freeapi.app/api/v1/users/login', options);
+            const data = await response.json();
+            if(data.statusCode < 400){
+                loginPage.classList.add('hidden')
+                testingPage.classList.remove('hidden')
+            }
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    
+</script>
+
+</html>
