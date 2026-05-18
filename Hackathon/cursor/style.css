@@ -1,0 +1,150 @@
+:root{
+    --primary-color: #13120A;
+    --btn-color: #D7D6D5 ;
+    --btn-text: #EDECEC;
+    --btn-pad: #45433D;
+    --ftr-color: #1B1912;
+    --ftr-heading: #484741;
+    --pad-lr: 85px
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/* Header and others */
+
+header > nav{
+    background-color: var(--primary-color);
+    color: var(--btn-text);
+
+    height: 52px;
+    padding: 0 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+header ul{
+    display: flex;
+    gap: 28px;
+}
+header li{
+    list-style: none;
+}
+header a{
+    list-style: none;
+    text-decoration: none;
+    color: var(--btn-text);
+}
+
+header button{
+    padding: 5px 10px;
+    border: 1px solid var(--btn-color);
+    border-radius: 15px;
+    margin-left: 8px;
+}
+/* Hover effects */
+header a:hover{
+    color: var(--btn-color);
+}
+header button:hover{
+    background-color: var(--btn-color);
+    cursor: pointer;
+}
+header button:first-child{
+    background-color: var(--primary-color);
+    color: var(--btn-text);
+    border: 1px solid var(--btn-pad);
+}
+header button:first-child:hover{
+    opacity: .9;
+}
+
+
+
+
+
+
+
+/* Footer contents */
+footer{
+    background-color: var(--ftr-color);
+    color: var(--btn-text);
+
+    /* will be deleted  */
+    bottom: 0;
+    position:relative;
+    width: 100vw;
+}
+#footer-div{
+    padding: var(--pad-lr);
+    display: flex;
+    justify-content: space-between;
+    max-width: 85%;
+}
+#footer-div li{
+    list-style: none;
+    padding: 5px;
+}
+#footer-div li:first-child a{
+    color: var(--ftr-heading);
+}
+#footer-div a{
+    text-decoration: none;
+    color: var(--btn-text);
+}
+#copyright-ftr{
+    color: var(--ftr-heading);
+    margin: 40px var(--pad-lr);
+}
+
+
+
+
+/* Body from here */
+main{
+}
+main > section{
+    background-color: var(--primary-color);
+    color: var(--btn-text);
+    padding: 0 var(--pad-lr);
+}
+main>#features>div>p{
+    font-size: 28px;
+
+}
+main>#features>div>button{
+    font-size: larger;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+    border: none;
+}
+#features>div{
+    padding: 120px 0 20px 0;
+}
+
+
+
+
+
+
+
+main> #first-s{
+    height: 800px;
+
+    margin: 60px 0;
+}
+main > #first-s >div{
+    background-image: url(image.png);
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <style>
+        :root {
+            --color-1: #13120A;
+            --color-2: #EDECEC;
+            --color-3: #474641;
+            --btn: #19180E;
+        }
+        nav{
+            color: var(--color-2);
+        }
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--color-1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+        }
+        main h2{
+            color: var(--color-3);
+        }
+        main h2:first-child{
+            color: var(--color-2);
+        }
+        .center button{
+            background-color: var(--color-3);
+            width: 500px;
+            display: block;
+            font-size: 14px;
+            font-weight: 100;
+            color: var(--color-2);
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px ;
+            padding: 10px;
+        }
+        input{
+            padding: 10px 0px;
+            width: 500px;
+            border-radius: 4px;
+            border: 1px solid var(--color-3);
+        }
+        label{
+            color: var(--color-3);
+            font-weight: bold;
+        }
+        footer{
+            position: relative;
+            bottom: 0;
+            width: 100vw;
+            text-align: center;
+            padding: 20px;
+            color: var(--color-3);
+        }
+        a{
+            text-decoration: none;
+            color: var(--color-3);
+        }
+        p{
+            color: #99978b;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>CURSOR</nav>
+    <main>
+
+        <div class="center">
+            <h2>Welcome to Cursor</h2>
+            <h2>The new way to build software</h2>
+            <button>Continue with Google</button>
+            <button>Continue with Github</button>
+            <button>Continue with Apple</button>
+            <label for="email">Email</label> <br>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email">
+            <button>Continue</button>
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </main>
+    <footer>
+        Terms of Service and Privacy Policy
+    </footer>
+</body>
+
+</html>

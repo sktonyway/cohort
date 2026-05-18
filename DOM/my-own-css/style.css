@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.dark{
+    display: block;
+    background: black;
+    color: white;
+}
+.stylish{
+    font-family: cursive;
+    line-height: 2;
+}
+.centered{
+    text-align: center;
+}
+.links{
+    text-decoration: none;
+    background: rgba(128, 128, 128, 0.681);
+}
+.paddedmini{
+    padding: ;
+}
